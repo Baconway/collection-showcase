@@ -112,7 +112,7 @@
         <button
           class="absolute -top-6 -right-6 rounded-tr-sm bg-red-500"
           onmousedown={() => (popup_opened = false)}
-          ><img src="/close.svg" alt="close" />
+          ><img src="/showcase/close.svg" alt="close" />
         </button>
       </div>
 

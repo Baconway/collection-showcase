@@ -91,7 +91,7 @@
 
 {#if popup_opened}
   <div
-    class="absolute inset-0
+    class="fixed inset-0
     flex justify-center-safe items-center-safe
     duration-200
     font-[Kosugi_Maru] text-white"
@@ -105,7 +105,7 @@
     >
       <div class="relative">
         <img
-          class="relative w-2xl"
+          class="relative lg:w-2xl w-lg"
           src={`${imageItem_selected.proxy_origin}/${decodeURI(imageItem_selected.name)}`}
           alt={"idk"}
         />
@@ -116,7 +116,7 @@
         </button>
       </div>
 
-      <p class="w-2xl text-3xl">
+      <p class="lg:w-2xl w-lg text-3xl">
         {decodeURI(imageItem_selected.name).replace(".png", "")}
       </p>
     </div>

@@ -1,17 +1,48 @@
 ---
+import '../styles/global.css'
 
+import Version from '../components/SiteInformation.svelte'
+import FrameEffect from '../components/FrameEffect.svelte'
+import PlateEffect from '../components/PlateEffect.svelte'
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/showcase/favicon.png" />
+		<link rel="icon" href="/showcase/favicon.ico" />
+		<meta content="/showcase/mini.png" property="og:image" />
+		<meta content="SDEZ All Collection" property="og:title">
+		<meta content="https://bway.lol/showcase" property="og:url">
+		<meta content="Funny washing game .pngs" property="og:description">
+		<meta name="theme-color" content="#FFA7CB" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>1.65 Collections</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+
+	<body class="flex flex-col justify-center-safe items-center-safe gap-6
+	 bg-shiroko-5 
+	 font-[Kosugi_Maru]">
+		<Version />
+
+		<a href="/showcase/frame" class="flex flex-col justify-center-safe items-center-safe gap-3
+		border-2 border-salt-2 hover:border-salt-1 rounded-md
+		p-3 text-white
+		duration-150
+		">
+			<FrameEffect OriginDir={process.env.FRAME_PATH as string} client:only="svelte"/>
+			<p class="">Frame</p>
+		</a>
+
+		<a href="/showcase/nameplate" class="flex flex-col justify-center-safe items-center-safe gap-3
+		border-2 border-salt-2 hover:border-salt-1 rounded-md
+		p-3 text-white
+		duration-150 
+		">
+			<PlateEffect OriginDir={process.env.PLATE_PATH as string} client:only="svelte"/>
+			<p>Plate</p>
+		</a>
+
 	</body>
 </html>

@@ -1,0 +1,27 @@
+---
+import fs from 'node:fs'
+import '../../styles/global.css'
+import Grids from '../../components/CollectionDisplay.svelte'
+import Version from '../../components/SiteInformation.svelte'
+
+let plate_name_contents : string[] = []
+
+if (process.env.PLATE_PATH) {
+  plate_name_contents = fs.readdirSync(process.env.PLATE_PATH ? process.env.PLATE_PATH : '')
+}
+
+const plate_metadata = [];
+
+for (let index = 0; index < plate_name_contents.length; index++) {
+  const plateName = plate_name_contents[index];
+  plate_metadata.push({proxy_origin: process.env.PLATE_PATH as string, name: encodeURI(plateName)})
+}
+---
+
+<html lang="en">
+  <body class="bg-shiroko-5 text-white font-[Google_Sans]">
+    <div class="flex flex-col justify-center-safe items-center-safe align-middle">
+    <Version />
+    <Grids metadata={plate_metadata} collection_display_size="plate" client:only="svelte"/>
+  </body>
+</html>

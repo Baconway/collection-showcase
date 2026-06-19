@@ -1,0 +1,27 @@
+---
+import fs from 'node:fs'
+import '../../styles/global.css'
+import Grids from '../../components/CollectionDisplay.svelte'
+import Version from '../../components/SiteInformation.svelte'
+
+let frame_name_contents : string[] = []
+
+if (process.env.FRAME_PATH) {
+  frame_name_contents = fs.readdirSync(process.env.FRAME_PATH ? process.env.FRAME_PATH : '')
+}
+
+const frame_metadata = [];
+
+for (let index = 0; index < frame_name_contents.length; index++) {
+  const frameName = frame_name_contents[index];
+  frame_metadata.push({proxy_origin: process.env.FRAME_PATH as string, name: encodeURI(frameName)})
+}
+---
+
+<html lang="en">
+  <body class="bg-shiroko-5 text-white font-[Google_Sans]">
+    <div class="flex flex-col justify-center-safe items-center-safe align-middle">
+    <Version />
+    <Grids metadata={frame_metadata} collection_display_size="frame" client:only="svelte"/>
+  </body>
+</html>

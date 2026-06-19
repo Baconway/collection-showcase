@@ -105,7 +105,7 @@
     >
       <div class="relative">
         <img
-          class="relative lg:w-2xl w-md"
+          class="relative lg:w-2xl w-sm"
           src={`${imageItem_selected.proxy_origin}/${decodeURI(imageItem_selected.name)}`}
           alt={"idk"}
         />
@@ -116,7 +116,7 @@
         </button>
       </div>
 
-      <p class="lg:w-2xl w-md text-3xl">
+      <p class="lg:w-2xl w-sm text-3xl">
         {decodeURI(imageItem_selected.name).replace(".png", "")}
       </p>
     </div>
